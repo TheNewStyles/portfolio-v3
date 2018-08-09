@@ -2,6 +2,13 @@
   min-height: 100vh;
 }
 
+#hamburger {
+  position: absolute;
+  bottom: 5%;
+  right: 5%;
+  z-index: 2;
+}
+
 .pushable {
   min-height: 100vh;
 }
@@ -9,3 +16,20 @@
 .pushable > .pusher{
   min-height: 100vh;
 }
+
+.ui.segment {
+  margin: 0;
+}
+
+.ui.button {
+  font-size: 3em;
+  padding: 10px;
+  padding-top: 0px;
+  padding-bottom: 5px;
+  line-height: 5px;
+  font-weight: normal;
+  line-height: 7px;
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+} 
