@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-import { Button, Icon, Menu, Segment, Sidebar } from 'semantic-ui-react'
+import { Button, Icon, Menu, Segment, Sidebar, Header } from 'semantic-ui-react'
 
 import '../Styles/MenuNav.css'
+import { MainButtonWrapper } from './MainButtonWrapper';
 
 export default class SidebarExampleDimmed extends Component {
   state = { visible: false }
@@ -25,27 +26,29 @@ export default class SidebarExampleDimmed extends Component {
             onHide={this.handleSidebarHide}
             vertical
             visible={visible}
-            width='thin'
+            width='wide'
           >
-            <Menu.Item as='a'>
+            <Menu.Item as='a' href="#home">
               <Icon name='home' />
               Home
             </Menu.Item>
-            <Menu.Item as='a'>
+            <Menu.Item as='a' href="#projects">
               <Icon name='star' />
               Projects
             </Menu.Item>
-            <Menu.Item as='a'>
+            <Menu.Item as='a' href="#contact">
               <Icon name='camera' />
               Contact
             </Menu.Item>
           </Sidebar>
 
           <Sidebar.Pusher dimmed={visible}>
-            {/* <Segment basic>
-              <Header as='h3'>Application Content</Header>
-              <Image src='https://react.semantic-ui.com/images/wireframe/paragraph.png' />
-            </Segment> */}
+            
+            <Header as='h2'>Tyler Peterson</Header>
+            <Segment basic>
+              <MainButtonWrapper />
+            </Segment>
+
           </Sidebar.Pusher>
         </Sidebar.Pushable>
       </div>
