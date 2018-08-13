@@ -1,8 +1,19 @@
 import React, { Component } from 'react'
 import { Button, Icon, Menu, Segment, Sidebar, Header } from 'semantic-ui-react'
+import {
+  BrowserRouter as Router,
+  Route,
+  NavLink
+} from 'react-router-dom'
 
 import '../Styles/MenuNav.css'
 import { MainButtonWrapper } from './MainButtonWrapper';
+
+const About = () => (
+  <div>
+    <h2>About</h2>
+  </div>
+)
 
 export default class SidebarExampleDimmed extends Component {
   state = { visible: false }
@@ -15,8 +26,8 @@ export default class SidebarExampleDimmed extends Component {
     const { visible } = this.state
 
     return (     
-      <div >     
-      <Button id="hamburger" onClick={this.handleButtonClick}>-<br/>-<br/>-</Button>
+      <div>     
+        <Button id="hamburger" onClick={this.handleButtonClick}>-<br/>-<br/>-</Button>
         <Sidebar.Pushable as={Segment}>
           <Sidebar
             as={Menu}
@@ -45,9 +56,24 @@ export default class SidebarExampleDimmed extends Component {
           <Sidebar.Pusher dimmed={visible}>
             
             <Header as='h2'>Tyler Peterson</Header>
-            <Segment basic>
-              <MainButtonWrapper />
-            </Segment>
+            
+            <Router>
+              <Segment basic>
+                <div className="button-wrapper">                  
+                  <Button className="main-button" inverted color='red'>
+                    <NavLink to="/home">Projects</NavLink>
+                  </Button>
+                  <Button className="main-button" inverted color='red'>
+                    About Me
+                  </Button>
+                  <Button className="main-button" inverted color='red'>
+                    Contact
+                  </Button>   
+
+                  <Route exact path="/home" component={About}/>                     
+                </div>               
+              </Segment>
+            </Router> 
 
           </Sidebar.Pusher>
         </Sidebar.Pushable>
